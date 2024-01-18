@@ -151,7 +151,7 @@ jobs:
       - name: Rename Apk
         run: |
           mkdir builds
-          mv android/app-signed.apk ./builds/Logseq-android-${{ steps.ref.outputs.version }}.apk
+          mv app/build/outputs/apk/release/app-release-unsigned.apk ./builds/Logseq-android-${{ steps.ref.outputs.version }}.apk
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
