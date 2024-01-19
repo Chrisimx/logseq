@@ -14,6 +14,12 @@ on:
     paths:
       - 'ios/App'
       - package.json
+  workflow_dispatch:
+    inputs:
+      git-ref:
+        description: "Release Git Ref (Which branch or tag to build?)"
+        required: true
+        default: "master"
 
 env:
   CLOJURE_VERSION: '1.11.1.1413'
@@ -26,7 +32,9 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c  # v3.3.0
-
+        with:
+          ref: ${{ github.event.inputs.git-ref }}
+          
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v3
         with:
