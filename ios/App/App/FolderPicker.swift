@@ -20,7 +20,7 @@ public class FolderPicker: CAPPlugin, UIDocumentPickerDelegate {
     DispatchQueue.main.async { [weak self] in
 
       let documentPicker = UIDocumentPickerViewController(
-        documentTypes: [String(kUTTypeFolder)],
+        documentTypes: [String(kUITypeItem)],
         in: UIDocumentPickerMode.open
       )
 
